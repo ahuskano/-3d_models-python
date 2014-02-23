@@ -5,12 +5,15 @@ import mayavi
 from numpy.random import uniform
 from mayavi import mlab
 u,v=numpy.mgrid[0:2*pi:160j,0:2*pi:160j]
+
 class tocke():
+
     def Xx(self,R,r,v,u):
         x=(R+r*cos(v))*cos(u)
         y=(R+r*cos(v))*sin(u)
         z=r*sin(v)
         return x,y,z
+
     def Nn(self,R,r,v,u):
         xv=cos(u)*(-r)*sin(v)
         yv=sin(u)*(-r)*sin(v)
@@ -28,6 +31,7 @@ class tocke():
                 cro=pomocna*cro
                 xu[a][b],yu[a][b],zu[a][b]=cro
         return xu,yu,zu
+
     def Ff(self,m,n,v,u):
         zbroj=u*0
         gl_zbroj=zbroj*0
@@ -39,9 +43,11 @@ class tocke():
                 zbroj=zbroj+(a*b)
             gl_zbroj=gl_zbroj+zbroj
         return gl_zbroj
+
     def Ss(self,V,e):
         vrati=sign(V)*power((2/pi)*arctan(abs(V)),e)
         return vrati
+
 def pokreni():
     #fiksni manji polumjer
     toc=tocke()
